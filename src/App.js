@@ -4,7 +4,9 @@ import './App.css';
 import City from './City';
 
 function App() {
-  const key = "469a2d487b18684def045a04c93e7a85";
+
+  const key = process.env.REACT_APP_SECRET_KEY;
+
   const [search, setSearch] = useState('Baku');
   const [city, setCity] = useState();
 
@@ -27,13 +29,16 @@ function App() {
  
   return (
   <div className="App">
+
       <p>Search place and see weather</p>
+      
       <input 
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         type="text" placeholder="Type here..." />
 
       {city && <City city={city} />}
+
   </div>
   );
 }
